@@ -11,4 +11,7 @@ setup_conda_pytorch_constraint
 setup_conda_cudatoolkit_constraint
 setup_visual_studio_constraint
 setup_junit_results_folder
-conda build -c $CONDA_CHANNEL -c defaults --no-test --python "$PYTHON_VERSION" packaging/torchvision
+mkdir output_folder
+conda build -c $CONDA_CHANNEL -c defaults --no-test --output-folder output_folder --python "$PYTHON_VERSION" packaging/torchvision
+built_package="$(find output_folder/ -name '*torchvision*.tar.bz2')"
+cp "$built_package" "$PYTORCH_FINAL_PACKAGE_DIR/"
