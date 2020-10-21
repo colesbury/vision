@@ -11,5 +11,4 @@ setup_conda_pytorch_constraint
 setup_conda_cudatoolkit_constraint
 setup_visual_studio_constraint
 setup_junit_results_folder
-export CONDA_CHANNEL_FLAGS="-c colesbury"
-conda build $CONDA_CHANNEL_FLAGS --no-test -c defaults -c conda-forge --no-anaconda-upload --python "$PYTHON_VERSION" packaging/torchvision
+conda build -c $CONDA_CHANNEL -c defaults --no-test --python "$PYTHON_VERSION" packaging/torchvision
